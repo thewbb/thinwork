@@ -1,0 +1,18 @@
+{
+    "name": "thewbb/thinwork",
+    "authors": [
+        {
+            "name": "thewbb",
+            "email": "thewbb@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": { "thewbb\\thinwork\\": "src" }
+    },
+    "require": {
+        "symfony/console": "^3.3",
+        "doctrine/doctrine-migrations-bundle": "1.3.x-dev",
+        "phpmailer/phpmailer": "dev-master"
+    }
+}
