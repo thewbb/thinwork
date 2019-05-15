@@ -9,11 +9,14 @@
 namespace thewbb\thinwork\libs;
 
 
+use Exception;
 use PDO;
 
 class MySql {
     public $queryParams;
     public $executeParams;
+    private $dbQuery;
+    private $dbExecute;
 
     function __construct($queryParams, $executeParams = null) {
         $this->queryParams = $queryParams;
@@ -26,7 +29,7 @@ class MySql {
     }
 //------------------------------------------------------------------------------------------------------------------
     // 数据库操作函数
-    private $dbQuery;
+
     private function dbQuery(){
         if(is_null($this->dbQuery)){
             $this->dbQuery = new PDO("mysql:dbname={$this->queryParams["dbname"]};host={$this->queryParams["host"]}",
@@ -36,7 +39,7 @@ class MySql {
         return $this->dbQuery;
     }
 
-    private $dbExecute;
+
     private function dbExecute(){
         if(is_null($this->dbExecute)){
             $this->dbExecute = new PDO("mysql:dbname={$this->executeParams["dbname"]};host={$this->executeParams["host"]}",
@@ -179,7 +182,7 @@ class MySql {
         $database_name = $this->executeParams["dbname"];
         $records = $this->fetchAll("select * from information_schema.COLUMNS where table_name = '$table' and table_schema = '$database_name'");
         if(empty($records)){
-            throw new Exception("table $table not exist");
+            throw new Exception("table `$table` not exist");
         }
 
         // 对于非空字段进行检查
