@@ -3,8 +3,7 @@
     "authors": [
         {
             "name": "thewbb",
-            "email": "thewbb@qq.com",
-            "license": "MIT",
+            "email": "thewbb@qq.com"
         }
     ],
     "minimum-stability": "dev",
@@ -12,6 +11,7 @@
         "psr-4": { "thewbb\\thinwork\\": "src" }
     },
     "require": {
-
+        "symfony/console": "^3.3",
+        "phpmailer/phpmailer": "dev-master"
     }
 }

@@ -77,8 +77,8 @@ class BaseController {
     // 添加模板函数
     function view($filename, $params = []){
         extract($params);
-        $flash_message = $this->di->common->getFlashMessageString();
-        include($this->di->config["path"]["view"].$filename);
+        $flash_message = $this->getFlashMessageString();
+        include($this->config["path"]["view"].$filename);
     }
 
     // 返回json
